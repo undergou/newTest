@@ -1,0 +1,60 @@
+{
+    "name": "yiifeed/yiifeed",
+    "description": "yiifeed",
+    "keywords": ["rss", "news", "feed", "yii"],
+    "homepage": "https://yiifeed.com/",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "~2.0.9",
+        "yiisoft/yii2-bootstrap": "~2.0.6",
+        "yiisoft/yii2-swiftmailer": "~2.0.5",
+        "yiisoft/yii2-authclient": "~2.1.1",
+        "cebe/yii2-gravatar": "~1.1",
+        "baibaratsky/yii2-rollbar": "1.2.*",
+        "bower-asset/codemirror": "~5.9.0",
+        "bower-asset/codemirror-buttons": "~1.0.0",
+        "yiisoft/yii2-queue": "~2.0.0",
+        "abraham/twitteroauth": "~0.7.4"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "~2.0.6",
+        "yiisoft/yii2-gii": "~2.0.5"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "fxp-asset": {
+            "installer-paths": {
+                "npm-asset-library": "vendor/npm-asset",
+                "bower-asset-library": "vendor/bower-asset"
+            }
+        }
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "yii\\composer\\Installer::postCreateProject"
+        ]
+    },
+    "extra": {
+        "yii\\composer\\Installer::postCreateProject": {
+            "setPermission": [
+                {
+                    "runtime": "0777",
+                    "web/assets": "0777",
+                    "yii": "0755"
+                }
+            ],
+            "generateCookieValidationKey": [
+                "config/web.php"
+            ]
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
+}

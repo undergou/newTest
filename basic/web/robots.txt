@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /assets/
+
+Host: https://yiifeed.com
